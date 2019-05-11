@@ -277,34 +277,7 @@ func SetNodeLocation(homeID uint32, nodeID uint8, location string) {
 	defer C.free(unsafe.Pointer(cstr))
 }
 
-// SetNodeOn turns a node on.
-//
-// This is a helper method to simplify basic control of a node. It is the
-// equivalent of changing the level reported by the node's Basic command class
-// to 255, and will generate a ValueChanged notification from that class. This
-// command will turn on the device at its last known level, if supported by the
-// device, otherwise it will turn it on at 100%.
-func SetNodeOn(homeID uint32, nodeID uint8) {
-	C.manager_setNodeOn(cmanager, C.uint32_t(homeID), C.uint8_t(nodeID))
-}
 
-// SetNodeOff turns a node off.
-//
-// This is a helper method to simplify basic control of a node. It is the
-// equivalent of changing the level reported by the node's Basic command class
-// to zero, and will generate a ValueChanged notification from that class.
-func SetNodeOff(homeID uint32, nodeID uint8) {
-	C.manager_setNodeOff(cmanager, C.uint32_t(homeID), C.uint8_t(nodeID))
-}
-
-// SetNodeLevel sets the basic level of a node.
-//
-// This is a helper method to simplify basic control of a node. It is the
-// equivalent of changing the value reported by the node's Basic command class
-// and will generate a ValueChanged notification from that class.
-func SetNodeLevel(homeID uint32, nodeID uint8, level uint8) {
-	C.manager_setNodeLevel(cmanager, C.uint32_t(homeID), C.uint8_t(nodeID), C.uint8_t(level))
-}
 
 // IsNodeInfoReceived returns whether the node information has been received.
 func IsNodeInfoReceived(homeID uint32, nodeID uint8) bool {
@@ -395,15 +368,6 @@ func SetNodeConfigParam(homeID uint32, nodeID uint8, param uint8, value int32, s
 	return bool(C.manager_setConfigParam(cmanager, C.uint32_t(homeID), C.uint8_t(nodeID), C.uint8_t(param), C.int32_t(value), C.uint8_t(size)))
 }
 
-// SwitchAllOn Switch all devices on. All devices that support the SwitchAll command class will be turned on.
-func SwitchAllOn(homeID uint32) {
-	C.manager_switchAllOn(cmanager, C.uint32_t(homeID))
-}
-
-// SwitchAllOff Switch all devices off. All devices that support the SwitchAll command class will be turned off.
-func SwitchAllOff(homeID uint32) {
-	C.manager_switchAllOff(cmanager, C.uint32_t(homeID))
-}
 
 // RequestNodeConfigParam requests the value of a configurable parameter from a
 // device.

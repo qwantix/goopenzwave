@@ -250,11 +250,7 @@ func buildNotification(n C.notification_t) *Notification {
 		// No notification info.
 
 	case NotificationTypeSceneEvent:
-		if notification.SceneID == nil {
-			notification.SceneID = new(uint8)
-		}
-		*(notification.SceneID) = uint8(C.notification_getSceneId(n))
-
+		// Depreacated
 	case NotificationTypeCreateButton, NotificationTypeDeleteButton, NotificationTypeButtonOn, NotificationTypeButtonOff:
 		if notification.ButtonID == nil {
 			notification.ButtonID = new(uint8)

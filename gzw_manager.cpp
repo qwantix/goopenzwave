@@ -46,11 +46,6 @@ void manager_getVersion(uint16_t *major, uint16_t *minor)
 // Configuration.
 //
 
-void manager_writeConfig(manager_t m, uint32_t homeId)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	man->WriteConfig(homeId);
-}
 
 options_t manager_getOptions(manager_t m)
 {
@@ -375,23 +370,23 @@ void manager_setNodeLocation(manager_t m, uint32_t homeId, uint8_t nodeId, const
 	man->SetNodeLocation(homeId, nodeId, str);
 }
 
-void manager_setNodeOn(manager_t m, uint32_t homeId, uint8_t nodeId)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	man->SetNodeOn(homeId, nodeId);
-}
+// void manager_setNodeOn(manager_t m, uint32_t homeId, uint8_t nodeId)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	man->SetNodeOn(homeId, nodeId);
+// }
 
-void manager_setNodeOff(manager_t m, uint32_t homeId, uint8_t nodeId)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	man->SetNodeOff(homeId, nodeId);
-}
+// void manager_setNodeOff(manager_t m, uint32_t homeId, uint8_t nodeId)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	man->SetNodeOff(homeId, nodeId);
+// }
 
-void manager_setNodeLevel(manager_t m, uint32_t homeId, uint8_t nodeId, uint8_t level)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	man->SetNodeLevel(homeId, nodeId, level);
-}
+// void manager_setNodeLevel(manager_t m, uint32_t homeId, uint8_t nodeId, uint8_t level)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	man->SetNodeLevel(homeId, nodeId, level);
+// }
 
 bool manager_isNodeInfoReceived(manager_t m, uint32_t homeId, uint8_t nodeId)
 {
@@ -788,20 +783,20 @@ bool manager_getSwitchPoint(manager_t m, valueid_t valueid, uint8_t idx, uint8_t
 // Switch all.
 //
 
-void manager_switchAllOn(manager_t m, uint32_t homeId)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	man->SwitchAllOn(homeId);
-}
+// void manager_switchAllOn(manager_t m, uint32_t homeId)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	man->SwitchAllOn(homeId);
+// }
 
-void manager_switchAllOff(manager_t m, uint32_t homeId)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	man->SwitchAllOff(homeId);
-}
+// void manager_switchAllOff(manager_t m, uint32_t homeId)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	man->SwitchAllOff(homeId);
+// }
 
 
-//
+// //
 // Configuration parameters.
 //
 
@@ -1043,100 +1038,100 @@ bool manager_deleteButton(manager_t m, uint32_t homeId, uint8_t nodeId, uint8_t 
 // Scene commands.
 //
 
-uint8_t manager_getNumScenes(manager_t m)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	return man->GetNumScenes();
-}
+// uint8_t manager_getNumScenes(manager_t m)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	return man->GetNumScenes();
+// }
 
-uint8_t manager_getAllScenes(manager_t m, uint8_t **sceneIds)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	return man->GetAllScenes(sceneIds);
-}
+// uint8_t manager_getAllScenes(manager_t m, uint8_t **sceneIds)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	return man->GetAllScenes(sceneIds);
+// }
 
-void manager_removeAllScenes(manager_t m, uint32_t homeId)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	man->RemoveAllScenes(homeId);
-}
+// void manager_removeAllScenes(manager_t m, uint32_t homeId)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	man->RemoveAllScenes(homeId);
+// }
 
-uint8_t manager_createScene(manager_t m)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	return man->CreateScene();
-}
+// uint8_t manager_createScene(manager_t m)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	return man->CreateScene();
+// }
 
-bool manager_removeScene(manager_t m, uint8_t sceneId)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	return man->RemoveScene(sceneId);
-}
+// bool manager_removeScene(manager_t m, uint8_t sceneId)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	return man->RemoveScene(sceneId);
+// }
 
-bool manager_addSceneValueBool(manager_t m, uint8_t sceneId, valueid_t valueid, bool value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->AddSceneValue(sceneId, *val, value);
-}
+// bool manager_addSceneValueBool(manager_t m, uint8_t sceneId, valueid_t valueid, bool value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->AddSceneValue(sceneId, *val, value);
+// }
 
-bool manager_addSceneValueUint8(manager_t m, uint8_t sceneId, valueid_t valueid, uint8_t value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->AddSceneValue(sceneId, *val, value);
-}
+// bool manager_addSceneValueUint8(manager_t m, uint8_t sceneId, valueid_t valueid, uint8_t value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->AddSceneValue(sceneId, *val, value);
+// }
 
-bool manager_addSceneValueFloat(manager_t m, uint8_t sceneId, valueid_t valueid, float value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->AddSceneValue(sceneId, *val, value);
-}
+// bool manager_addSceneValueFloat(manager_t m, uint8_t sceneId, valueid_t valueid, float value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->AddSceneValue(sceneId, *val, value);
+// }
 
-bool manager_addSceneValueInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->AddSceneValue(sceneId, *val, value);
-}
+// bool manager_addSceneValueInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->AddSceneValue(sceneId, *val, value);
+// }
 
-bool manager_addSceneValueInt16(manager_t m, uint8_t sceneId, valueid_t valueid, int16_t value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->AddSceneValue(sceneId, *val, value);
-}
+// bool manager_addSceneValueInt16(manager_t m, uint8_t sceneId, valueid_t valueid, int16_t value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->AddSceneValue(sceneId, *val, value);
+// }
 
-bool manager_addSceneValueString(manager_t m, uint8_t sceneId, valueid_t valueid, const char* value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	std::string str(value);
-	return man->AddSceneValue(sceneId, *val, str);
-}
+// bool manager_addSceneValueString(manager_t m, uint8_t sceneId, valueid_t valueid, const char* value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	std::string str(value);
+// 	return man->AddSceneValue(sceneId, *val, str);
+// }
 
-bool manager_addSceneValueListSelectionString(manager_t m, uint8_t sceneId, valueid_t valueid, const char* value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	std::string str(value);
-	return man->AddSceneValueListSelection(sceneId, *val, str);
-}
+// bool manager_addSceneValueListSelectionString(manager_t m, uint8_t sceneId, valueid_t valueid, const char* value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	std::string str(value);
+// 	return man->AddSceneValueListSelection(sceneId, *val, str);
+// }
 
-bool manager_addSceneValueListSelectionInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->AddSceneValueListSelection(sceneId, *val, value);
-}
+// bool manager_addSceneValueListSelectionInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->AddSceneValueListSelection(sceneId, *val, value);
+// }
 
-bool manager_removeSceneValue(manager_t m, uint8_t sceneId, valueid_t valueid)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->RemoveSceneValue(sceneId, *val);
-}
+// bool manager_removeSceneValue(manager_t m, uint8_t sceneId, valueid_t valueid)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->RemoveSceneValue(sceneId, *val);
+// }
 
 //TODO int manager_sceneGetValues(manager_t m, uint8_t sceneId, valueidlist_t *o_value)
 // {
@@ -1148,156 +1143,156 @@ bool manager_removeSceneValue(manager_t m, uint8_t sceneId, valueid_t valueid)
 // 	return result;
 // }
 
-bool manager_sceneGetValueAsBool(manager_t m, uint8_t sceneId, valueid_t valueid, bool *o_value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->SceneGetValueAsBool(sceneId, *val, o_value);
-}
+// bool manager_sceneGetValueAsBool(manager_t m, uint8_t sceneId, valueid_t valueid, bool *o_value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->SceneGetValueAsBool(sceneId, *val, o_value);
+// }
 
-bool manager_sceneGetValueAsByte(manager_t m, uint8_t sceneId, valueid_t valueid, uint8_t *o_value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->SceneGetValueAsByte(sceneId, *val, o_value);
-}
+// bool manager_sceneGetValueAsByte(manager_t m, uint8_t sceneId, valueid_t valueid, uint8_t *o_value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->SceneGetValueAsByte(sceneId, *val, o_value);
+// }
 
-bool manager_sceneGetValueAsFloat(manager_t m, uint8_t sceneId, valueid_t valueid, float *o_value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->SceneGetValueAsFloat(sceneId, *val, o_value);
-}
+// bool manager_sceneGetValueAsFloat(manager_t m, uint8_t sceneId, valueid_t valueid, float *o_value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->SceneGetValueAsFloat(sceneId, *val, o_value);
+// }
 
-bool manager_sceneGetValueAsInt(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t *o_value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->SceneGetValueAsInt(sceneId, *val, o_value);
-}
+// bool manager_sceneGetValueAsInt(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t *o_value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->SceneGetValueAsInt(sceneId, *val, o_value);
+// }
 
-bool manager_sceneGetValueAsShort(manager_t m, uint8_t sceneId, valueid_t valueid, int16_t *o_value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->SceneGetValueAsShort(sceneId, *val, o_value);
-}
+// bool manager_sceneGetValueAsShort(manager_t m, uint8_t sceneId, valueid_t valueid, int16_t *o_value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->SceneGetValueAsShort(sceneId, *val, o_value);
+// }
 
-bool manager_sceneGetValueAsString(manager_t m, uint8_t sceneId, valueid_t valueid, char **o_value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	std::string str;
-	bool result = man->SceneGetValueAsString(sceneId, *val, &str);
-	if (*o_value) {
-		free(*o_value);
-	}
-	*o_value = strdup(str.c_str());
-	return result;
-}
+// bool manager_sceneGetValueAsString(manager_t m, uint8_t sceneId, valueid_t valueid, char **o_value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	std::string str;
+// 	bool result = man->SceneGetValueAsString(sceneId, *val, &str);
+// 	if (*o_value) {
+// 		free(*o_value);
+// 	}
+// 	*o_value = strdup(str.c_str());
+// 	return result;
+// }
 
-bool manager_sceneGetValueListSelectionString(manager_t m, uint8_t sceneId, valueid_t valueid, char **o_value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	std::string str;
-	bool result = man->SceneGetValueListSelection(sceneId, *val, &str);
-	if (*o_value) {
-		free(*o_value);
-	}
-	*o_value = strdup(str.c_str());
-	return result;
-}
+// bool manager_sceneGetValueListSelectionString(manager_t m, uint8_t sceneId, valueid_t valueid, char **o_value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	std::string str;
+// 	bool result = man->SceneGetValueListSelection(sceneId, *val, &str);
+// 	if (*o_value) {
+// 		free(*o_value);
+// 	}
+// 	*o_value = strdup(str.c_str());
+// 	return result;
+// }
 
-bool manager_sceneGetValueListSelectionInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t *o_value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->SceneGetValueListSelection(sceneId, *val, o_value);
-}
+// bool manager_sceneGetValueListSelectionInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t *o_value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->SceneGetValueListSelection(sceneId, *val, o_value);
+// }
 
-bool manager_setSceneValueBool(manager_t m, uint8_t sceneId, valueid_t valueid, bool value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->SetSceneValue(sceneId, *val, value);
-}
+// bool manager_setSceneValueBool(manager_t m, uint8_t sceneId, valueid_t valueid, bool value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->SetSceneValue(sceneId, *val, value);
+// }
 
-bool manager_setSceneValueUint8(manager_t m, uint8_t sceneId, valueid_t valueid, uint8_t value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->SetSceneValue(sceneId, *val, value);
-}
+// bool manager_setSceneValueUint8(manager_t m, uint8_t sceneId, valueid_t valueid, uint8_t value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->SetSceneValue(sceneId, *val, value);
+// }
 
-bool manager_setSceneValueFloat(manager_t m, uint8_t sceneId, valueid_t valueid, float value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->SetSceneValue(sceneId, *val, value);
-}
+// bool manager_setSceneValueFloat(manager_t m, uint8_t sceneId, valueid_t valueid, float value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->SetSceneValue(sceneId, *val, value);
+// }
 
-bool manager_setSceneValueInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->SetSceneValue(sceneId, *val, value);
-}
+// bool manager_setSceneValueInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->SetSceneValue(sceneId, *val, value);
+// }
 
-bool manager_setSceneValueInt16(manager_t m, uint8_t sceneId, valueid_t valueid, int16_t value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->SetSceneValue(sceneId, *val, value);
-}
+// bool manager_setSceneValueInt16(manager_t m, uint8_t sceneId, valueid_t valueid, int16_t value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->SetSceneValue(sceneId, *val, value);
+// }
 
-bool manager_setSceneValueString(manager_t m, uint8_t sceneId, valueid_t valueid, const char* value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	std::string str(value);
-	return man->SetSceneValue(sceneId, *val, str);
-}
+// bool manager_setSceneValueString(manager_t m, uint8_t sceneId, valueid_t valueid, const char* value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	std::string str(value);
+// 	return man->SetSceneValue(sceneId, *val, str);
+// }
 
-bool manager_setSceneValueListSelectionString(manager_t m, uint8_t sceneId, valueid_t valueid, const char* value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	std::string str(value);
-	return man->SetSceneValueListSelection(sceneId, *val, str);
-}
+// bool manager_setSceneValueListSelectionString(manager_t m, uint8_t sceneId, valueid_t valueid, const char* value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	std::string str(value);
+// 	return man->SetSceneValueListSelection(sceneId, *val, str);
+// }
 
-bool manager_setSceneValueListSelectionInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
-	return man->SetSceneValueListSelection(sceneId, *val, value);
-}
+// bool manager_setSceneValueListSelectionInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	OpenZWave::ValueID *val = (OpenZWave::ValueID*)valueid;
+// 	return man->SetSceneValueListSelection(sceneId, *val, value);
+// }
 
-char* manager_getSceneLabel(manager_t m, uint8_t sceneId)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	return strdup(man->GetSceneLabel(sceneId).c_str());
-}
+// char* manager_getSceneLabel(manager_t m, uint8_t sceneId)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	return strdup(man->GetSceneLabel(sceneId).c_str());
+// }
 
-void manager_setSceneLabel(manager_t m, uint8_t sceneId, const char* value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	std::string str(value);
-	man->SetSceneLabel(sceneId, str);
-}
+// void manager_setSceneLabel(manager_t m, uint8_t sceneId, const char* value)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	std::string str(value);
+// 	man->SetSceneLabel(sceneId, str);
+// }
 
-bool manager_sceneExists(manager_t m, uint8_t sceneId)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	return man->SceneExists(sceneId);
-}
+// bool manager_sceneExists(manager_t m, uint8_t sceneId)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	return man->SceneExists(sceneId);
+// }
 
-bool manager_activateScene(manager_t m, uint8_t sceneId)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
-	return man->ActivateScene(sceneId);
-}
+// bool manager_activateScene(manager_t m, uint8_t sceneId)
+// {
+// 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
+// 	return man->ActivateScene(sceneId);
+// }
 
 //
 // Statistics retreival interface.

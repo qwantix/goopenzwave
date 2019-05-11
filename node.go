@@ -185,21 +185,6 @@ func (n *Node) SetLocation(location string) {
 	SetNodeLocation(n.HomeID, n.NodeID, location)
 }
 
-// SetOn Turns a node on This is a helper method to simplify basic control of a node. It is the equivalent of changing the level reported by the node's Basic command class to 255, and will generate a ValueChanged notification from that class. This command will turn on the device at its last known level, if supported by the device, otherwise it will turn it on at 100%.
-func (n *Node) SetOn() {
-	SetNodeOn(n.HomeID, n.NodeID)
-}
-
-// SetOff Turns a node off This is a helper method to simplify basic control of a node. It is the equivalent of changing the level reported by the node's Basic command class to zero, and will generate a ValueChanged notification from that class.
-func (n *Node) SetOff() {
-	SetNodeOff(n.HomeID, n.NodeID)
-}
-
-// SetLevel Sets the basic level of a node This is a helper method to simplify basic control of a node. It is the equivalent of changing the value reported by the node's Basic command class and will generate a ValueChanged notification from that class.
-func (n *Node) SetLevel(level uint8) {
-	SetNodeLevel(n.HomeID, n.NodeID, level)
-}
-
 // IsInfoReceived Get whether the node information has been received.
 func (n *Node) IsInfoReceived() bool {
 	return IsNodeInfoReceived(n.HomeID, n.NodeID)

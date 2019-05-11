@@ -3,6 +3,8 @@
 Go bindings for the [OpenZWave](https://github.com/OpenZWave/open-zwave) library.
 
 
+OpenZwave 1.6 compatible
+
 ## Warning
 
 This package is still fairly new and so the API is changing pretty rapidly, so be careful if you decide to use it. However, the API will try to mimic the C++ OpenZWave library as much as possible, if it doesn't already, so there shouldn't be many breaking changes.
@@ -28,7 +30,7 @@ Example install from source:
 ## Get the Package
 
 ```
-go get github.com/jimjibone/goopenzwave
+go get github.com/qwantix/goopenzwave
 ```
 
 
@@ -41,7 +43,7 @@ It shows how to set up the Manager with various options and listen for Notificat
 To install and use:
 
 ```
-go install github.com/jimjibone/goopenzwave/gominozw
+go install github.com/qwantix/goopenzwave/gominozw
 gominozw --controller /dev/ttyYourUSBDevice
 ```
 

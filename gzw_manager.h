@@ -96,9 +96,6 @@ extern "C" {
 	void manager_setNodeProductName(manager_t m, uint32_t homeId, uint8_t nodeId, const char* productName);
 	void manager_setNodeName(manager_t m, uint32_t homeId, uint8_t nodeId, const char* nodeName);
 	void manager_setNodeLocation(manager_t m, uint32_t homeId, uint8_t nodeId, const char* location);
-	void manager_setNodeOn(manager_t m, uint32_t homeId, uint8_t nodeId);
-	void manager_setNodeOff(manager_t m, uint32_t homeId, uint8_t nodeId);
-	void manager_setNodeLevel(manager_t m, uint32_t homeId, uint8_t nodeId, uint8_t level);
 	bool manager_isNodeInfoReceived(manager_t m, uint32_t homeId, uint8_t nodeId);
 	bool manager_getNodeClassInformation(manager_t m, uint32_t homeId, uint8_t nodeId, uint8_t commandClassId, char **o_name, uint8_t *o_version);
 	bool manager_isNodeAwake(manager_t m, uint32_t homeId, uint8_t nodeId);
@@ -162,12 +159,6 @@ extern "C" {
 	void manager_clearSwitchPoints(manager_t m, valueid_t valueid);
 	bool manager_getSwitchPoint(manager_t m, valueid_t valueid, uint8_t idx, uint8_t *o_hours, uint8_t *o_minutes, int8_t *o_setback);
 
-	//
-	// Switch all.
-	//
-
-	void manager_switchAllOn(manager_t m, uint32_t homeId);
-	void manager_switchAllOff(manager_t m, uint32_t homeId);
 
 	//
 	// Configuration parameters.
@@ -230,45 +221,6 @@ extern "C" {
 	bool manager_createButton(manager_t m, uint32_t homeId, uint8_t nodeId, uint8_t buttonid);
 	bool manager_deleteButton(manager_t m, uint32_t homeId, uint8_t nodeId, uint8_t buttonid);
 
-	//
-	// Scene commands.
-	//
-
-	uint8_t manager_getNumScenes(manager_t m);
-	uint8_t manager_getAllScenes(manager_t m, uint8_t **sceneIds);
-	void manager_removeAllScenes(manager_t m, uint32_t homeId);
-	uint8_t manager_createScene(manager_t m);
-	bool manager_removeScene(manager_t m, uint8_t sceneId);
-	bool manager_addSceneValueBool(manager_t m, uint8_t sceneId, valueid_t valueid, bool value);
-	bool manager_addSceneValueUint8(manager_t m, uint8_t sceneId, valueid_t valueid, uint8_t value);
-	bool manager_addSceneValueFloat(manager_t m, uint8_t sceneId, valueid_t valueid, float value);
-	bool manager_addSceneValueInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t value);
-	bool manager_addSceneValueInt16(manager_t m, uint8_t sceneId, valueid_t valueid, int16_t value);
-	bool manager_addSceneValueString(manager_t m, uint8_t sceneId, valueid_t valueid, const char* value);
-	bool manager_addSceneValueListSelectionString(manager_t m, uint8_t sceneId, valueid_t valueid, const char* value);
-	bool manager_addSceneValueListSelectionInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t value);
-	bool manager_removeSceneValue(manager_t m, uint8_t sceneId, valueid_t valueid);
-//TODO int manager_sceneGetValues(manager_t m, uint8_t sceneId, valueidlist_t *o_value);
-	bool manager_sceneGetValueAsBool(manager_t m, uint8_t sceneId, valueid_t valueid, bool *o_value);
-	bool manager_sceneGetValueAsByte(manager_t m, uint8_t sceneId, valueid_t valueid, uint8_t *o_value);
-	bool manager_sceneGetValueAsFloat(manager_t m, uint8_t sceneId, valueid_t valueid, float *o_value);
-	bool manager_sceneGetValueAsInt(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t *o_value);
-	bool manager_sceneGetValueAsShort(manager_t m, uint8_t sceneId, valueid_t valueid, int16_t *o_value);
-	bool manager_sceneGetValueAsString(manager_t m, uint8_t sceneId, valueid_t valueid, char **o_value);
-	bool manager_sceneGetValueListSelectionString(manager_t m, uint8_t sceneId, valueid_t valueid, char **o_value);
-	bool manager_sceneGetValueListSelectionInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t *o_value);
-	bool manager_setSceneValueBool(manager_t m, uint8_t sceneId, valueid_t valueid, bool value);
-	bool manager_setSceneValueUint8(manager_t m, uint8_t sceneId, valueid_t valueid, uint8_t value);
-	bool manager_setSceneValueFloat(manager_t m, uint8_t sceneId, valueid_t valueid, float value);
-	bool manager_setSceneValueInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t value);
-	bool manager_setSceneValueInt16(manager_t m, uint8_t sceneId, valueid_t valueid, int16_t value);
-	bool manager_setSceneValueString(manager_t m, uint8_t sceneId, valueid_t valueid, const char* value);
-	bool manager_setSceneValueListSelectionString(manager_t m, uint8_t sceneId, valueid_t valueid, const char* value);
-	bool manager_setSceneValueListSelectionInt32(manager_t m, uint8_t sceneId, valueid_t valueid, int32_t value);
-	char* manager_getSceneLabel(manager_t m, uint8_t sceneId);
-	void manager_setSceneLabel(manager_t m, uint8_t sceneId, const char* value);
-	bool manager_sceneExists(manager_t m, uint8_t sceneId);
-	bool manager_activateScene(manager_t m, uint8_t sceneId);
 
 	//
 	// Statistics retreival interface.

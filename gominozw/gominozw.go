@@ -6,7 +6,7 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/jimjibone/goopenzwave"
+	"github.com/qwantix/goopenzwave"
 )
 
 type NodeInfo struct {
@@ -56,7 +56,7 @@ func main() {
 	// Wait here until the initial node query has completed.
 	<-initialQueryComplete
 	fmt.Println("Finished initial scan, now setting up polling...")
-
+	return
 	// Now we will enable polling for a variable. In this simple example, it
 	// has been hardwired to poll COMMAND_CLASS_BASIC on each node that
 	// supports this setting.
@@ -103,6 +103,9 @@ func main() {
 }
 
 func handleNotification(notification *goopenzwave.Notification) {
+	if notification.HomeID == 0 {
+		return // Ignore
+	}
 	fmt.Println("Received notification:", notification)
 
 	// Switch based on notification type.

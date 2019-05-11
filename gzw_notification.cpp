@@ -142,11 +142,6 @@ uint8_t notification_getButtonId(notification_t n)
     return noti->GetButtonId();
 }
 
-uint8_t notification_getSceneId(notification_t n)
-{
-    OpenZWave::Notification *noti = (OpenZWave::Notification*)n;
-    return noti->GetSceneId();
-}
 
 uint8_t notification_getNotification(notification_t n)
 {
