@@ -140,6 +140,7 @@ extern "C" {
 	bool manager_setValueFloat(manager_t m, valueid_t valueid, float value);
 	bool manager_setValueInt32(manager_t m, valueid_t valueid, int32_t value);
 	bool manager_setValueInt16(manager_t m, valueid_t valueid, int16_t value);
+	bool manager_setValueShort(manager_t m, valueid_t valueid, uint16_t value);
 	bool manager_setValueBytes(manager_t m, valueid_t valueid, zwbytes_t *value);
 	bool manager_setValueString(manager_t m, valueid_t valueid, const char* value);
 	bool manager_setValueListSelection(manager_t m, valueid_t valueid, const char* selectedItem);
