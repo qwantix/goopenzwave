@@ -356,24 +356,6 @@ func SetValueInt16(homeID uint32, valueID uint64, value int16) error {
 }
 
 
-// SetValueShort sets the value of a 16-bit unsigned integer. It will return an
-// error if the value is not of 16-bit unsigned integer type.
-//
-// Due to the possibility of a device being asleep, the command is assumed to
-// succeed, and the value held by the node is updated directly. This will be
-// reverted by a future status message from the device if the Z-Wave message
-// actually failed to get through. Notification callbacks will be sent in both
-// cases.
-func SetValueShort(homeID uint32, valueID uint64, value uint16) error {
-	cvalueid := C.valueid_create(C.uint32_t(homeID), C.uint64_t(valueID))
-	defer C.valueid_free(cvalueid)
-	ok := bool(C.manager_setValueShort(cmanager, cvalueid, C.uint16_t(value)))
-	if ok == false {
-		return fmt.Errorf("value is not of 16-bit signed integer type")
-	}
-	return nil
-}
-
 // SetValueBytes sets the value of a raw value. It will return an error if the
 // value is not of raw type.
 //

@@ -682,13 +682,6 @@ bool manager_setValueInt16(manager_t m, valueid_t valueid, int16_t value)
 	return man->SetValue(*val, value);
 }
 
-bool manager_setValueShort(manager_t m, valueid_t valueid, uint16_t value)
-{
-	OpenZWave::Manager *man = (OpenZWave::Manager *)m;
-	OpenZWave::ValueID *val = (OpenZWave::ValueID *)valueid;
-	return man->SetValue(*val, value);
-}
-
 bool manager_setValueBytes(manager_t m, valueid_t valueid, zwbytes_t *value)
 {
 	OpenZWave::Manager *man = (OpenZWave::Manager*)m;
